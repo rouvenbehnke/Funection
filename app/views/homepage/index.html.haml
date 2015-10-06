@@ -360,30 +360,28 @@
             %p.lead I am available for freelance. Can't wait for the next exciting project! Could be yours?
             %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.
           / === Contact Form ===
-          %form#contact-form.col-sm-6.col-md-offset-1.scrollimation.fade-left.d3{:action => "contact.php", :method => "post", :novalidate => ""}
-            .form-group
-              %label.control-label{:for => "contact-name"} Name
-              .controls
-                %input#contact-name.form-control.requiredField{"data-error-empty" => "Please enter your name", :name => "contactName", :placeholder => "Your name", :type => "text"}/
-                %i.fa.fa-user
-            / End name input
-            .form-group
-              %label.control-label{:for => "contact-mail"} Email
-              .controls
-                %input#contact-mail.form-control.requiredField{"data-error-empty" => "Please enter your email", "data-error-invalid" => "Invalid email address", :name => "email", :placeholder => "Your email", :type => "email"}/
-                %i.fa.fa-envelope
-            / End email input
-            .form-group
-              %label.control-label{:for => "contact-message"} Message
-              .controls
-                %textarea#contact-message.form-control.requiredField{"data-error-empty" => "Please enter your message", :name => "comments", :placeholder => "Your message", :rows => "6"}
-                %i.fa.fa-comment
-            / End textarea
-            %p
-              %button.btn.btn-color2.btn-block{"data-error-message" => "Error!", "data-ok-message" => "Message Sent", "data-sending-message" => "Sending...", :name => "submit", :type => "submit"}
-                %i.fa.fa-paper-plane>
-                Send Message
-            %input#submitted{:name => "submitted", :type => "hidden", :value => "true"}/
+          %form#contact-form.col-sm-6.col-md-offset-1.scrollimation.fade-left.d3
+
+            %p#notice= notice
+            = form_for(User.new) do |f|
+              .form-group
+                = f.label :first_name, :class => "control-label"
+                .controls
+                  = f.text_field :first_name, :class => "form-control requiredField", :placeholder => "Vorname"
+                  %i.fa.fa-comment
+              .form-group
+                = f.label :last_name, :class => "control-label"
+                .controls
+                  = f.text_field :last_name, :class => "form-control requiredField", :placeholder => "Nachname"
+                  %i.fa.fa-comment
+              .form-group
+                = f.label :email, :class => "control-label"
+                .controls
+                  = f.text_field :email, :class => "form-control requiredField", :placeholder => "Email-Adresse"
+                  %i.fa.fa-comment
+
+              = f.submit 'Anmelden', :class => "btn btn-color2 btn-block"
+
 
     /
       \==============================================
