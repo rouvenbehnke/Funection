@@ -1,3 +1,3 @@
-class Homepage
+class Homepage < ActiveRecord::Base
 
 end
