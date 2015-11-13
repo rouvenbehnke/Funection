@@ -18,7 +18,7 @@ class UsersController < ActionController::Base
   # Rails4 attributes must be marked as required
 
   def user_params
-    params.require(:user).permit(:password, :email)
+    params.require(:user).permit(:email, :password)
   end
 
 end

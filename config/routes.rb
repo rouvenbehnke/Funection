@@ -7,6 +7,10 @@ Rails.application.routes.draw do
    resources :users
    resources :sessions
 
+   match '/registration/create' => 'registrations#create', :as => :create_registration, via: [:post]
+
+
+
    get 'homepage', to: 'homepage#show'
    get 'login', to: 'sessions#new'
 

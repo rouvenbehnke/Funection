@@ -17,6 +17,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'rails_12factor', group: :production
 gem 'pg'
+gem 'font-awesome-rails'
 ruby '2.2.0'
 
 

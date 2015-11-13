@@ -1,0 +1,26 @@
+= form_for Registration.new, :url => create_registration_path, :html => {:method => :post} do |f|
+  %label
+    = "Bitte fülle folgende Informationen aus"
+  .form-group
+    .controls
+      = f.text_field :first_name, :class => "form-control requiredField", :placeholder => "Vorname", :required => true
+  .form-group
+    .controls
+      = f.text_field :last_name, :class => "form-control requiredField", :placeholder => "Nachname", :required => true
+  .form-group
+    .controls
+      = f.text_field :email, :class => "form-control requiredField", :placeholder => "Email-Adresse", :required => true
+  .form-group
+    .controls
+      = f.text_field :fav_song, :class => "form-control requiredField", :placeholder => "Dein momentanes Lieblingslied", :required => true
+  .form-group
+    %label
+      = "Kennst du ein Funection Mitglied persönlich?"
+      .select-style
+        = f.select :acqu, Registration.acqus.keys.to_a, :required => true
+  = f.submit "Anmelden", class: 'button btn btn-color2 btn-block'
+
+
+
+
+
