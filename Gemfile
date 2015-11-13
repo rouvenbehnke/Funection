@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
@@ -18,8 +19,6 @@ gem 'haml-rails'
 gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'font-awesome-rails'
-ruby '2.2.0'
-
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
