@@ -1,24 +1,46 @@
-= form_for Registration.new, :url => create_registration_path, :html => {:method => :post} do |f|
-  %label
-    = "Bitte fülle folgende Informationen aus"
+- knows = ["Ja", "Nein"]
+%div{'ng-controller' => 'FormCtrl', 'data-form-id' => SecureRandom.hex, 'data-knows' => knows}
   .form-group
-    .controls
-      = f.text_field :first_name, :class => "form-control requiredField", :placeholder => "Vorname", :required => true
-  .form-group
-    .controls
-      = f.text_field :last_name, :class => "form-control requiredField", :placeholder => "Nachname", :required => true
-  .form-group
-    .controls
-      = f.text_field :email, :class => "form-control requiredField", :placeholder => "Email-Adresse", :required => true
-  .form-group
-    .controls
-      = f.text_field :fav_song, :class => "form-control requiredField", :placeholder => "Dein momentanes Lieblingslied", :required => true
-  .form-group
+    .error{'ng-if' => 'error'}
+      = "waddafuck"
+
+  = form_tag registrations_path, name: 'registration_form', 'ng-submit' => 'send()' do |form|
     %label
-      = "Kennst du ein Funection Mitglied persönlich?"
-      .select-style
-        = f.select :acqu, Registration.acqus.keys.to_a, :required => true
-  = f.submit "Anmelden", class: 'button btn btn-color2 btn-block'
+      = "Bitte fülle folgende Informationen aus"
+
+    .form-group
+      .controls
+        = text_field_tag('first_name', '', 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', :placeholder => "Vorname")
+
+    .form-group
+      .controls
+        = text_field_tag('last_name', '', 'ng-model' => 'formValues.last_name', required: 'true', class: 'form-control', :placeholder => "Nachname",)
+
+    .form-group
+      .controls
+        = text_field_tag('email', '', 'ng-model' => 'formValues.email', class: 'form-control', :placeholder => "Nachname")
+
+    .form-group
+      .controls
+        = text_field_tag('fav-song', '', 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', :placeholder => "Favourite Song")
+
+    .form-group
+      .select
+        = text_field_tag('fav-song', '', 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', :placeholder => "Favourite Song")
+    .form-group
+      %label
+        = "Kennst du ein Funection Mitglied persönlich?"
+
+      %select{'ng-model' => 'formValues.acqu', 'ng-options' => "know for know in knows", 'ng-required' => 'true', class: 'form-control'}
+
+
+    .form-group
+      .col-sm-offset-3.col-sm-9
+      = button_tag(t('.submit'), 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
+
+      .form-group
+        .error{'ng-if' => 'sent'}
+          = "Danke für dein Vertrauen"
 
 
 

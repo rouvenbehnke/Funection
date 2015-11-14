@@ -19,6 +19,8 @@ gem 'haml-rails'
 gem 'rails_12factor', group: :production
 gem 'pg'
 gem 'font-awesome-rails'
+gem 'angularjs-rails', '1.2.20'
+
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby

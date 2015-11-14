@@ -1,5 +1,5 @@
 !!!
-%html.no-js{:lang => "en-US"}
+%html{"ng-app" => "Funection"}
   %head
     /
       \==============================================
@@ -9,6 +9,8 @@
     %title Team Funection
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    :coffee
+      window.relative_url_root = "#{ActionController::Base.config.relative_url_root}"
     /
       \==============================================
       Favicons
@@ -388,7 +390,6 @@
           / === Contact Form ===
           .col-sm-6.col-md-offset-1.scrollimation.fade-left.d3
 
-            %p#notice= notice
             = render :template => "registration/new"
 
 

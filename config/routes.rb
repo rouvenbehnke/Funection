@@ -6,8 +6,8 @@ Rails.application.routes.draw do
    root 'sessions#new'
    resources :users
    resources :sessions
+   resources :registrations
 
-   match '/registration/create' => 'registrations#create', :as => :create_registration, via: [:post]
 
 
 
