@@ -8,7 +8,9 @@ angular.module('app.controllers')
 ($s, $element, RegistrationFormResource) ->
   $s.formId = $element.data('form-id')
   $s.formValues = {}
-  $s.acqus = $element.data('topics')
+  $s.acqus = $element.data('knows')
+  $s.marital_status = $element.data('marital')
+
 
   $s.send = () ->
     $s.sent = false

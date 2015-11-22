@@ -1,48 +1,73 @@
 - knows = ["Ja", "Nein"]
-%div{'ng-controller' => 'FormCtrl', 'data-form-id' => SecureRandom.hex, 'data-knows' => knows}
+- martial = ["Einzelperson", "Ehepaar", "Familie"]
+%div{'ng-controller' => 'FormCtrl', 'data-form-id' => SecureRandom.hex, 'data-knows' => knows, 'data-marital' => martial}
   .form-group
     .error{'ng-if' => 'error'}
-      = "waddafuck"
+
 
   = form_tag registrations_path, name: 'registration_form', 'ng-submit' => 'send()' do |form|
-    %label
-      = "Bitte fülle folgende Informationen aus"
 
     .form-group
+      %label Bitte wähle deine Anmeldeart
       .controls
-        = text_field_tag('first_name', '', 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', :placeholder => "Vorname")
-
-    .form-group
-      .controls
-        = text_field_tag('last_name', '', 'ng-model' => 'formValues.last_name', required: 'true', class: 'form-control', :placeholder => "Nachname",)
-
-    .form-group
-      .controls
-        = text_field_tag('email', '', 'ng-model' => 'formValues.email', class: 'form-control', :placeholder => "Nachname")
-
-    .form-group
-      .controls
-        = text_field_tag('fav-song', '', 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', :placeholder => "Favourite Song")
-
-    .form-group
-      .select
-        = text_field_tag('fav-song', '', 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', :placeholder => "Favourite Song")
-    .form-group
-      %label
-        = "Kennst du ein Funection Mitglied persönlich?"
-
-      %select{'ng-model' => 'formValues.acqu', 'ng-options' => "know for know in knows", 'ng-required' => 'true', class: 'form-control'}
+        %select{'ng-model' => 'marital_statuus', 'ng-options' => "marita for marita in marital_status", class: 'form-control'}
 
 
-    .form-group
-      .col-sm-offset-3.col-sm-9
-      = button_tag(t('.submit'), 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
+    .div{'ng-if' => 'marital_statuus'}
+      .form-group
+        .controls
+        .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
+          %input{:name => "first_name", 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', placeholder: "Dein Vorname", :type => "text"}
+        .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
+          %input{:name => "first_name", 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', placeholder: "Eure Vornamen, z.B.: Sabine, Thorsten", :type => "text"}
+
+
+      .form-group
+        .controls
+        .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
+          %input{:name => "last_name", 'ng-model' => 'formValues.last_name', required: 'true', class: 'form-control', placeholder: "Dein Nachname", :type => "text"}
+        .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
+          %input{:name => "last_name", 'ng-model' => 'formValues.last_name', required: 'true', class: 'form-control', placeholder: "Euer Nachname", :type => "text"}
+
+
+      .form-group
+        .controls
+        .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
+          %input{:name => "email", 'ng-model' => 'formValues.email', required: 'true', class: 'form-control', placeholder: "Deine Email-Adresse", :type => "text"}
+        .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
+          %input{:name => "email", 'ng-model' => 'formValues.email', required: 'true', class: 'form-control', placeholder: "Eure E-Mail-Adresse", :type => "text"}
+
+      .form-group
+        .controls
+        .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
+          %input{:name => "email", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
+        .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
+          %input{:name => "email", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Euere momentanen Lieblingslieder", :type => "text"}
+
+      .form-group
+        %label{'ng-if' => 'marital_statuus=="Einzelperson"'}
+          = "Kennst du ein Funection Mitglied persönlich?"
+        %label{'ng-if' => 'marital_statuus!="Einzelperson"'}
+          = "Kennt ihr ein Funection Mitglied persönlich?"
+
+
+        %select{'ng-model' => 'acqu', 'ng-options' => "acqu for acqu in acqus", 'ng-required' => 'true', class: 'form-control'}
+
+      .form-group{'ng-if' => 'acqu=="Nein"'}
+        .controls
+          Von wem wurdest du eingeladen?
+          = text_field_tag('acquaintance', '', 'ng-model' => 'formValues.acquaintance', class: 'form-control', :placeholder => "Vor und Nachname", 'ng-required' => 'true')
+      .form-group
+        .controls
+          = text_area('questions', '', 'ng-model' => 'formValues.questions', required: 'true', class: 'form-control', :placeholder => "Weitere Fragen/Anmerkungen?")
+
+      .form-group
+        .col-sm-offset-3.col-sm-9
+        = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
 
       .form-group
         .error{'ng-if' => 'sent'}
           = "Danke für dein Vertrauen"
-
-
 
 
 

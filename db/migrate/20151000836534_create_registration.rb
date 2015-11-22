@@ -8,6 +8,7 @@ class CreateRegistration < ActiveRecord::Migration
       t.integer :acqu, default: 1
       t.string :acquaintance
       t.string :fav_song
+      t.string :questions
       t.timestamps
     end
   end
