@@ -6,9 +6,7 @@
 
 app = angular.module('Funection', [
   'app.controllers'
-  'app.directives'
   'app.resources'
-  'app.services'
 ])
 
 app.config ["$httpProvider", ($httpProvider) ->
