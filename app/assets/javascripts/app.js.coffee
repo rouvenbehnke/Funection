@@ -1,8 +1,6 @@
 #= require_self
-#= require_tree ./app/directives/
 #= require_tree ./app/controllers/
 #= require_tree ./app/resources/
-#= require_tree ./app/services/
 
 app = angular.module('Funection', [
   'app.controllers'
