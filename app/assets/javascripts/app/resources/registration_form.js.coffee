@@ -1,8 +1,7 @@
 angular.module('app.resources')
 
 .factory 'RegistrationFormResource', ['$resource', ($resource) ->
-  $resource 'http://localhost:3000/registrations#create', {},
+  $resource window.location.origin + '/registrations#create', {},
     create:
       method: 'POST'
 ]
-
