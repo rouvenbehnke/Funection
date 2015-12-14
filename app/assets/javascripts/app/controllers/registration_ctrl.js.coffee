@@ -11,6 +11,17 @@ angular.module('app.controllers')
   $s.acqus = $element.data('knows')
   $s.marital_status = $element.data('marital')
 
+  $s.$watch 'marital_statuus', () ->
+    if $s.marital_statuus == "Einzelperson"
+      $s.formValues.persons = 1
+    if $s.marital_statuus == "Ehepaar"
+      $s.formValues.persons = 2
+    if $s.marital_statuus == "Familie"
+      $s.formValues.persons = ""
+
+
+
+
 
   $s.send = () ->
     $s.sent = false
@@ -20,6 +31,8 @@ angular.module('app.controllers')
       form_values: $s.formValues
     , (success) ->
       $s.sent = true
+      $s.formValues = ""
+      $s.marital_statuus = null
     , (error) ->
       $s.error = true
 ]

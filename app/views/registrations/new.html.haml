@@ -8,12 +8,23 @@
   = form_tag registrations_path, name: 'registration_form', 'ng-submit' => 'send()' do |form|
 
     .form-group
+      .error{'ng-if' => 'sent'}
+        %h2
+          = "Deine Anmeldung war erfolgreich"
+
+    .form-group
       %label Bitte wähle deine Anmeldeart
       .controls
         %select{'ng-model' => 'marital_statuus', 'ng-options' => "marita for marita in marital_status", class: 'form-control'}
 
 
     .div{'ng-if' => 'marital_statuus'}
+
+      .form-group
+        .controls
+        .div{'ng-if' => 'marital_statuus=="Familie"'}
+          %input{:name => "persons", 'ng-model' => 'formValues.persons', required: 'true', class: 'form-control', placeholder: "Anzahl der Familienmitglieder z.B.: 4", :type => "text"}
+
       .form-group
         .controls
         .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
@@ -56,18 +67,16 @@
       .form-group{'ng-if' => 'acqu=="Nein"'}
         .controls
           Von wem wurdest du eingeladen?
-          = text_field_tag('acquaintance', '', 'ng-model' => 'formValues.acquaintance', class: 'form-control', :placeholder => "Vor und Nachname", 'ng-required' => 'true')
+          %input{:name => "acquaintance", 'ng-model' => 'formValues.acquaintance', required: 'true', class: 'form-control', placeholder: "Vor und Nachname", :type => "text"}
       .form-group
         .controls
-          = text_area('questions', '', 'ng-model' => 'formValues.questions', required: 'true', class: 'form-control', :placeholder => "Weitere Fragen/Anmerkungen?")
+          = text_area('questions', '', 'ng-model' => 'formValues.questions', class: 'form-control', :placeholder => "Weitere Fragen/Anmerkungen?")
 
       .form-group
         .col-sm-offset-3.col-sm-9
         = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
 
-      .form-group
-        .error{'ng-if' => 'sent'}
-          = "Danke für dein Vertrauen"
+
 
 
 

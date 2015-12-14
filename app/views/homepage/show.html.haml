@@ -22,14 +22,7 @@
     = javascript_include_tag('application')
 
     = stylesheet_link_tag('application', media: 'all')
-    /
-      \==============================================
-      CSS
-      \===============================================
-    /
-      \==============================================
-      Fonts
-      \===============================================
+
     %link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700", :rel => "stylesheet", :type => "text/css"}/
     /
       \==============================================
@@ -67,8 +60,6 @@
             %li
               %a.scrollto{:href => "#location"} Location
             %li
-              %a.scrollto{:href => "#portfolio"} Bilder
-            %li
               %a.scrollto{:href => "#contact"} Anmelden
         / End navbar-collapse
       / End container
@@ -83,15 +74,12 @@
         %h2 presents
         %h1 Neon ^5
     / End header
-    /
-      \==============================================
-      SERVICES
-      \===============================================
+
     %section#services.add-padding
       .container
-        %h1.section-title.big-text.scrollimation.fade-up Rahmenbedingungen
+        %h2.section-title.big-text.scrollimation.fade-up Datum Eintritt Programm
         .row
-          .col-sm-3.service-item.color1.scrollimation.scale-in.d2
+          .col-sm-4.service-item.color1.scrollimation.scale-in.d2
             .service-icon
               %i.fa.fa-rocket
 
@@ -108,48 +96,67 @@
               %b
                 2.Teil:
               ab 21:30 Uhr
-          .col-sm-3.service-item.color2.scrollimation.scale-in.d1
+          .col-sm-4.service-item.color2.scrollimation.scale-in.d1
+            .service-icon
+              %i.fa.fa-black-tie
+            %h3 Eintritt
+            %b
+              Einmalig 10 Euro
+            %p
+              Enthalten sind u.a. die Raumkosten, Dekoration, Sound- und Licht-Anlage,..
+
+          .col-sm-4.service-item.color3.scrollimation.scale-in.d2
+            .service-icon
+              %i.fa.fa-glass
+            %h3 Programm
+
+            %p
+              %b
+                18:30 Uhr:
+              Standard-Partnertänze, Line Dance, Stimmungskracher
+              %br
+              %b
+                Ab 22:00 Uhr:
+              Freestyle, Top 100, Electro, Black
+    %section#services.add-padding
+      .container
+        %h1.section-title.big-text.scrollimation.fade-up Infos
+        .row
+          .col-sm-4.service-item.color1.scrollimation.scale-in.d2
+            .service-icon
+              %i.fa.fa-rocket
+
+            %h3 Getränke
+            Gibt es vor Ort (z. B. 0,4l Cola – 0,60€)
+
+          .col-sm-4.service-item.color3.scrollimation.scale-in.d2
+            .service-icon
+              %i.fa.fa-glass
+            %h3 Essen
+
+            %p
+
+              %br
+              Alle, die zum
+              %b
+                ersten
+              Teil kommen, bringen bitte Fingerfood mit (also essbare Dinge, deren Verzehr ohne Besteck möglich ist). Die Menge wählt bitte entsprechend eurem Hunger.
+          .col-sm-4.service-item.color2.scrollimation.scale-in.d1
             .service-icon
               %i.fa.fa-black-tie
             %h3 Dresscode
             %p
-              Das Motto verbirgt es mal wieder:
               %b
                 Neon.
+              %br
               Ob ihr jetzt euer  komplettes Outfit dem Motto entsprechend gestaltet, nur wirksame Highlights mit ausgewählten Accessoires setzt oder euch noch zusätzlich von der
               %b
                 “5”
               inspirieren lasst - eurer Phantasie sind keine Grenzen gesetzt.
-          .col-sm-3.service-item.color3.scrollimation.scale-in.d2
-            .service-icon
-              %i.fa.fa-glass
-            %h3 Essen & Getränke
 
-            %p
-              %b
-                Essen:
-              %br
-              Alle, die zum ersten Teil kommen, bringen bitte Fingerfood mit (also essbare Dinge, deren Verzehr ohne Besteck möglich ist). Die Menge wählt bitte entsprechend eurem Hunger.
-              %b
-            %p
-              %b
-                Getränke:
-              %br
-              Gibt es vor Ort (z. B. 0,4l Cola – 0,60€)
-          .col-sm-3.service-item.color1.scrollimation.scale-in.d2
-            .service-icon
-              %i.fa.fa-hand-peace-o
-            %h3 Programm
-            %p
-              %b
-                18:30 Uhr:
-              %br
-              Standard-Partnertänze
-              %br
-              %b
-                22:00 Uhr:
-              %br
-              Line Dance, Stimmungskracher und Freestyle
+
+
+
     %section#location.add-padding-small.bg-color1
       .container
         .row
@@ -169,6 +176,7 @@
           .col-sm-8.service-item.scrollimation.scale-in.d2
             #gmap
 
+
     /
       \==============================================
       ABOUT
@@ -183,214 +191,26 @@
               Wer ist Team Funection?
             %br
 
-            %p.lead Wir sind Team Funection aus Berlin. Wir können besonders gut unseren Namen tanzen und sind im Guiness Buch der Rekorde für das größte jemals gepackene Toast.
+            %p.lead
+              Das Funection-Team - Aus zwei mach‘ neun = fünf!
             %p
-    /
-      \==============================================
-      PORTFOLIO
-      \===============================================
-    %section#portfolio.add-padding
-      .container
-        %h1.big-text.text-center.scrollimation.fade-in Potentielle Bilder
-        / ==== Portfolio Filters ====
-        #filter-works
-          %ul
-            %li.active.scrollimation.fade-right.d1
-              %a{"data-filter" => "*", :href => "#"} All
-            %li.scrollimation.fade-right
-              %a{"data-filter" => ".identity", :href => "#"} Identity
-            %li.scrollimation.fade-left
-              %a{"data-filter" => ".logo", :href => "#"} Logo
-            %li.scrollimation.fade-left.d1
-              %a{"data-filter" => ".illustration", :href => "#"} Illustration
-        / End portfolio filters
-        / ==== Project Preview ====
-        #project-preview
-          %span.close-preview ×
-          #project-slider.flexslider
-          %h1#project-title
-          #project-content
-        / Project Preview
-      .container.masonry-wrapper
-        #projects-container
-          /
-            \==============================================
-            SINGLE PROJECT ITEM
-            \===============================================
-          %article.project-item.illustration
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Designer World
-              / Project Title
-              %p illustration
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-center
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-arrow-right>
-                  Visit Website
-          /
-            \==============================================
-            END PROJECT ITEM
-            \===============================================
-          %article.project-item.identity.logo
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Squirrel
-              / Project Title
-              %p identity / logo
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-right
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-dribbble>
-                  View on Dribbble
-          / End Project Item
-          %article.project-item.illustration
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Radio Tape
-              / Project Title
-              %p illustration
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-          / End Project Item
-          %article.project-item.identity
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Austin Texas
-              / Project Title
-              %p identity
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-right
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-dribbble>
-                  View on Dribbble
-          / End Project Item
-          %article.project-item.logo
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Red Glove
-              / Project Title
-              %p logo
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-          / End Project Item
-          %article.project-item.logo
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Checklist
-              / Project Title
-              %p logo
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-center
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-arrow-right>
-                  Visit Website
-          / End Project Item
-          %article.project-item.identity.logo
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Music City
-              / Project Title
-              %p identity / logo
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-right
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-dribbble>
-                  View on Dribbble
-          / End Project Item
-          %article.project-item.illustration.logo
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Black Rock
-              / Project Title
-              %p illustration / logo
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh non feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-center
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-arrow-right>
-                  Visit Website
-          / End Project Item
-          %article.project-item.illustration.identity
-            = image_tag('thumb', class: "img img-responsive project-image")
-            / Project thumb
-            .hover-mask
-              %h2.project-title Coyote
-              / Project Title
-              %p illustration / identity
-              / Project Subtitle
-            / ==== Project Preview HTML ====
-            .sr-only.project-description{"data-images" => "assets/images/slide.png,assets/images/slide.png"}
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sapien risus, blandit at fringilla ac, varius sed dolor. Donec augue lacus, vulputate sed consectetur facilisis, interdum pharetra ligula. Nulla suscipit erat nibh, ut porttitor nisl dapibus eu.
-              %p Phasellus porta eros vel lacus euismod consequat. Phasellus eleifend, nibh nGon feugiat hendrerit, lacus enim adipiscing eros, a pharetra erat neque eget est. Quisque vitae aliquet urna. Integer suscipit lectus eu enim porttitor fringilla. Ut blandit, urna in auctor euismod, arcu eros pharetra metus, a porta purus libero a nibh.
-              %p Nam eget urna pellentesque nisl ultrices dapibus. Mauris accumsan vehicula nisl, sed tempus mauris facilisis eu. Donec a iaculis nisi, quis malesuada justo. Pellentesque ut enim sit amet ipsum dignissim egestas. Morbi tincidunt rhoncus urna eget placerat.
-              %p.text-center
-                %a.btn.btn-color1{:href => "#external-link"}
-                  %i.fa.fa-arrow-right>
-                  Visit Website
-          / End Project Item
-        / End projects
-      / End container
-    /
-      \==============================================
-      CONTACT
-      \===============================================
+              Man nehme zwei verrückte Jungs, werfe eine Idee in den Raum und schon hat es Auswirkungen auf viele - auch auf dich!
+            %p
+              Du lachst? Das haben wir anderen auch und schon war das Funection-Team ins Leben gerufen. Manche sind „ausversehen“ reingerutscht worden, andere haben den Fehler gemacht und ein Funection-Teammitglied geheiratet und der Rest? Der hat Bestandsschutz.
+            %p
+              So qualmen inzwischen also 9 Köpfe, um eine super Party auf die Beine zu stellen. Was kommt nach Black and Red, Smart Casual + Hut, Blue and White und der Century-Party? Die fünfte unvergessliche Funection-Party!
+
     %section#contact.add-padding
       .container.text-center
         .row
           .col-sm-6.col-md-5.text-right.scrollimation.fade-up.d1
             %h1.big-text Anmeldung
-            %p.lead Wir sind bemüht eine schöne Atmosphäre mit netten, lieben Brüdern und Schwestern zu ermöglichen. Um sicherzustellen,
+            %p.lead Wir sind bemüht eine schöne Atmosphäre mit netten, lieben Brüdern und Schwestern zu ermöglichen.
             %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.
           / === Contact Form ===
           .col-sm-6.col-md-offset-1.scrollimation.fade-left.d3
 
-            = render :template => "registration/new"
+            = render :template => "registrations/new"
 
 
     /

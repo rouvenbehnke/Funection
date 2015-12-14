@@ -1,10 +1,12 @@
 #= require_self
 #= require_tree ./app/controllers/
 #= require_tree ./app/resources/
+#= require_tree ./app/directives/
 
 app = angular.module('Funection', [
   'app.controllers'
   'app.resources'
+  'app.directives'
 ])
 
 app.config ["$httpProvider", ($httpProvider) ->
@@ -22,6 +24,4 @@ app.config ['$sceDelegateProvider', ($sceDelegateProvider) ->
   ])
 ]
 
-
 window.relative_url_root = ''
-

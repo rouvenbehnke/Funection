@@ -8,11 +8,13 @@ Rails.application.routes.draw do
    resources :sessions
    resources :registrations
 
-
-
-
    get 'homepage', to: 'homepage#show'
    get 'login', to: 'sessions#new'
+
+  scope :api do
+    get "/registrations(.:format)" => "registrations#bbq"
+    get "/registrations/:id(.:format)" => "registrations#show"
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -63,3 +65,4 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 end
+

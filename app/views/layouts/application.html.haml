@@ -1,20 +1,33 @@
 !!!
-%html{"ng-app" => "myNoteApp"}
+%html{"ng-app" => "Funection"}
   %head
-
+    /
+      \==============================================
+      Title and Meta Tags
+      \===============================================
     %meta{:charset => "utf-8"}/
-    %title Funection
+    %title Team Funection
     %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
     %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-
+    :coffee
+      window.relative_url_root = "#{ActionController::Base.config.relative_url_root}"
+    /
+      \==============================================
+      Favicons
+      \===============================================
     %link{:href => "assets/images/favicon.ico", :rel => "shortcut icon"}/
     %link{:href => "assets/images/apple-touch-icon.png", :rel => "apple-touch-icon"}/
     %link{:href => "assets/images/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
     %link{:href => "assets/images/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
-    - if current_page?(homepage_path)
-      = javascript_include_tag('application')
+    = javascript_include_tag('registration')
 
     = stylesheet_link_tag('application', media: 'all')
+
     %link{:href => "http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700", :rel => "stylesheet", :type => "text/css"}/
-    %body{"data-offset" => "200", "data-spy" => "scroll", "data-target" => "#main-nav"}
+    /
+      \==============================================
+      JS
+      \===============================================
+    /[if lt IE 9]
+    %body
       = yield

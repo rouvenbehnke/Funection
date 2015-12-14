@@ -1,0 +1,52 @@
+.container
+  %h2 Funection Control Center
+  %h3 Welche Anmeldungen sollen angezeigt werden?
+  %div{"ng-controller" => "RegistrationApiCtrl", 'data-form-id' => SecureRandom.hex}
+    .controls
+      %select{'ng-model' => 'registration_filter', class: 'form-control', 'ng-initial' => 'Neuanmeldungen'}
+        %option{:value => ""} Alle Anmeldungen
+        %option{:value => "created"} Neuanmeldungen
+        %option{:value => "confirmed"} Bestätigt
+        %option{:value => "accepted"} Bezahlt/Abgeschlossen
+        %option{:value => "declined"} Abgesagt oder Abgelehnte Anmeldungen
+    %h4 Personenzahl: {{registrations.persons}}
+
+
+
+    .div{"ng-repeat" => "registration in registrations | filter:registration_filter"}
+      .col-xs-4.wrap
+        %p
+          %b
+            Vorname(n):
+          {{registration.first_name}}
+        %p
+          %b
+            Nachname(n):
+          {{registration.last_name}}
+        %p
+          %b
+            E-Mail:
+          {{registration.email}}
+        %p
+          %b
+            Kennt uns persönlich?
+          {{registration.acqu}}
+        %p
+          %b
+            Weitere Fragen:
+          {{registration.questions}}
+        %p
+          %b
+            Status:
+          {{registration.state}}
+        %p
+          %b
+            ID:
+          {{registration.id}}
+        %p
+          %button.btn.btn-success{'ng-click' => 'update(registration, 1)'} Bestätigen
+          %button.btn.btn-warning{'ng-click' => 'update(registration, 3)'} Bezahlung
+          %button.btn.btn-default{'ng-click' => 'update(registration, 2)'} Absagen
+
+
+
