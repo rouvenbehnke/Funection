@@ -1,6 +1,6 @@
 body{
-	background:#eee;
-	color: #818b8a;
+	background: white;
+	color: white;
 }
 
 strong{
@@ -62,7 +62,7 @@ td#style-9 {
 }
 
 .jumbotron {
-    background:url(../assets/theme-preview.jpg) no-repeat top center; 
+    background:url(../assets/theme-preview.jpg) no-repeat top center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -77,7 +77,7 @@ td#style-9 {
     -webkit-box-shadow:none;
     box-shadow:none;
 	margin-bottom:100px;
-} 
+}
 
 .panel-body{
     padding:50px;

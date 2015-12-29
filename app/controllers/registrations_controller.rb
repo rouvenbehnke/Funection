@@ -32,10 +32,11 @@ class RegistrationsController < ApplicationController
   end
 
   def registration_params
-    params.require(:form_values).permit(:state,:persons, :first_name, :last_name, :email, :fav_song, :acqu, :acquaintance, :questions)
+    params.require(:form_values).permit(:state, :persons, :first_name, :last_name, :email, :fav_song, :acqu, :acquaintance, :questions, :parts)
   end
 
   private
+
 
   def mail_template(registration)
     case registration.state

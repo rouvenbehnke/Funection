@@ -1,6 +1,7 @@
-- knows = ["Ja", "Nein"]
+- knows = ["ja", "nein"]
 - martial = ["Einzelperson", "Ehepaar", "Familie"]
-%div{'ng-controller' => 'FormCtrl', 'data-form-id' => SecureRandom.hex, 'data-knows' => knows, 'data-marital' => martial}
+- partselection = ["Part1(Partnertanz)", "Part2(Freestyle)", "Part1 & Part2"]
+%div{'ng-controller' => 'FormCtrl', 'data-form-id' => SecureRandom.hex, 'data-knows' => knows, 'data-marital' => martial, 'data-partselection' => partselection}
   .form-group
     .error{'ng-if' => 'error'}
 
@@ -9,7 +10,7 @@
 
     .form-group
       .error{'ng-if' => 'sent'}
-        %h2
+        %h2.forestgreen
           = "Deine Anmeldung war erfolgreich"
 
     .form-group
@@ -30,7 +31,7 @@
         .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
           %input{:name => "first_name", 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', placeholder: "Dein Vorname", :type => "text"}
         .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
-          %input{:name => "first_name", 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', placeholder: "Eure Vornamen, z.B.: Sabine, Thorsten", :type => "text"}
+          %input{:name => "first_name", 'ng-model' => 'formValues.first_name', required: 'true', class: 'form-control', placeholder: "Eure beiden Vornamen, z.B.: Sabine, Thorsten", :type => "text"}
 
 
       .form-group
@@ -51,9 +52,16 @@
       .form-group
         .controls
         .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
-          %input{:name => "email", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
+          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
         .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
-          %input{:name => "email", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Euere momentanen Lieblingslieder", :type => "text"}
+          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Eure momentanen Lieblingslieder", :type => "text"}
+
+      %label
+        = "An welchen Parts würdet ihr/du gerne teilnehmen?"
+
+      .form-group
+        %select{'ng-model' => 'partcollector', 'ng-options' => "part for part in parts", 'ng-required' => 'true', class: 'form-control', 'ng-change' => 'partselection_eval(partcollector)'}
+
 
       .form-group
         %label{'ng-if' => 'marital_statuus=="Einzelperson"'}
@@ -62,9 +70,10 @@
           = "Kennt ihr ein Funection Mitglied persönlich?"
 
 
-        %select{'ng-model' => 'acqu', 'ng-options' => "acqu for acqu in acqus", 'ng-required' => 'true', class: 'form-control'}
+        %select{'ng-model' => 'acqucollector', 'ng-options' => "acqu for acqu in acqus", 'ng-required' => 'true', class: 'form-control', 'ng-change' => 'showSelectValue(acqucollector)'}
+        %br
 
-      .form-group{'ng-if' => 'acqu=="Nein"'}
+      .form-group{'ng-if' => 'acqucollector=="nein"'}
         .controls
           Von wem wurdest du eingeladen?
           %input{:name => "acquaintance", 'ng-model' => 'formValues.acquaintance', required: 'true', class: 'form-control', placeholder: "Vor und Nachname", :type => "text"}

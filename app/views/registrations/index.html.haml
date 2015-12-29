@@ -9,44 +9,86 @@
         %option{:value => "confirmed"} Bestätigt
         %option{:value => "accepted"} Bezahlt/Abgeschlossen
         %option{:value => "declined"} Abgesagt oder Abgelehnte Anmeldungen
-    %h4 Personenzahl: {{registrations.persons}}
+        %option{:value => "reserved"} Reservierte Anmeldungen
+
+    %p
+      Bestätigt: {{registration_persons_confirmed}}, Abgelehnt/Abgesagt: {{registration_persons_declined}}, Abeschlossen: {{registration_persons_accepted}}, Reserviert: {{registration_persons_reserved}}
+
+
+    {{test}}
 
 
 
-    .div{"ng-repeat" => "registration in registrations | filter:registration_filter"}
-      .col-xs-4.wrap
-        %p
-          %b
-            Vorname(n):
-          {{registration.first_name}}
-        %p
-          %b
-            Nachname(n):
-          {{registration.last_name}}
-        %p
-          %b
-            E-Mail:
-          {{registration.email}}
-        %p
-          %b
-            Kennt uns persönlich?
-          {{registration.acqu}}
-        %p
-          %b
-            Weitere Fragen:
-          {{registration.questions}}
-        %p
-          %b
-            Status:
-          {{registration.state}}
-        %p
-          %b
-            ID:
-          {{registration.id}}
-        %p
-          %button.btn.btn-success{'ng-click' => 'update(registration, 1)'} Bestätigen
-          %button.btn.btn-warning{'ng-click' => 'update(registration, 3)'} Bezahlung
-          %button.btn.btn-default{'ng-click' => 'update(registration, 2)'} Absagen
+    .div{"ng-if" => "!registration_filter"}
+      = "Tabelle sortieren nach:"
+      %select{'ng-model' => 'registration', class: 'form-control', 'ng-initial' => 'first_name'}
+        %option{:value => "first_name"} Vorname
+        %option{:value => "last_name"} Nachname
+        %option{:value => "email"} Email
+        %option{:value => "acqu"} Kennt uns?
+        %option{:value => "state"} Status
+        %option{:value => "questions"} Fragen
+        %option{:value => "parts"} Parts
+
+      %br
+
+      %table.table.table-bordered
+        %thead
+          %tr
+            %th Vorname(n)
+            %th Nachname(n)
+            %th Email
+            %th Kennt uns ?
+            %th Personen
+            %th Fragen
+            %th Parts
 
 
+        %tbody
+
+          %tr{"ng-repeat" => "registration in registrations | orderBy:registration", "ng-style" => "colorize(registration)"}
+            %td {{registration.first_name}}
+            %td {{registration.last_name}}
+            %td {{registration.email}}
+            %td {{registration.acqu}}
+            %td {{registration.persons}}
+            %td {{registration.questions}}
+            %td {{registration.parts}}
+
+
+
+
+    .div{"ng-if" => "registration_filter"}
+      .div{"ng-repeat" => "registration in registrations | filter:registration_filter"}
+        .col-xs-4.wrap
+          %p
+            %b
+              Vorname(n):
+            {{registration.first_name}}
+          %p
+            %b
+              Nachname(n):
+            {{registration.last_name}}
+          %p
+            %b
+              E-Mail:
+            {{registration.email}}
+          %p
+            %b
+              Kennt uns persönlich?
+            {{registration.acqu}}
+          %p
+            %b
+              Weitere Fragen:
+            {{registration.questions}}
+          %p
+            %b
+              Parts:
+            {{registration.parts}}
+
+          %p
+            %button.btn.btn-success{'ng-click' => 'update(registration, 1)'} Bestätigen
+            %button.btn.btn-warning{'ng-click' => 'update(registration, 3)'} Bezahlung
+            %button.btn.btn-info{'ng-click' => 'update(registration, 4)'} Reserviert
+            %button.btn.btn-default{'ng-click' => 'update(registration, 2)'} Absagen
 

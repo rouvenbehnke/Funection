@@ -54,7 +54,7 @@
             %li.sr-only
               %a.scrollto{:href => "#home"} Home
             %li
-              %a.scrollto{:href => "#services"} Rahmenbedinungen
+              %a.scrollto{:href => "#services"} Infos
             %li
               %a.scrollto{:href => "#about"} Über uns
             %li
@@ -77,7 +77,7 @@
 
     %section#services.add-padding
       .container
-        %h2.section-title.big-text.scrollimation.fade-up Datum Eintritt Programm
+        %h2.section-title.big-text.scrollimation.fade-up Datum | Eintritt | Programm
         .row
           .col-sm-4.service-item.color1.scrollimation.scale-in.d2
             .service-icon
@@ -98,7 +98,7 @@
               ab 21:30 Uhr
           .col-sm-4.service-item.color2.scrollimation.scale-in.d1
             .service-icon
-              %i.fa.fa-black-tie
+              %i.fa.fa-eur
             %h3 Eintritt
             %b
               Einmalig 10 Euro
@@ -107,31 +107,31 @@
 
           .col-sm-4.service-item.color3.scrollimation.scale-in.d2
             .service-icon
-              %i.fa.fa-glass
+              %i.fa.fa-hand-o-up
             %h3 Programm
 
             %p
               %b
                 18:30 Uhr:
-              Standard-Partnertänze, Line Dance, Stimmungskracher
+              Standard-Partnertänze, Line Dance, Gruppentanz
               %br
               %b
                 Ab 22:00 Uhr:
               Freestyle, Top 100, Electro, Black
     %section#services.add-padding
       .container
-        %h1.section-title.big-text.scrollimation.fade-up Infos
+        %h1.section-title.big-text.scrollimation.fade-up Getränke | Essen | Dresscode
         .row
-          .col-sm-4.service-item.color1.scrollimation.scale-in.d2
+          .col-sm-4.service-item.color3.scrollimation.scale-in.d2
             .service-icon
-              %i.fa.fa-rocket
+              %i.fa.fa-glass
 
             %h3 Getränke
             Gibt es vor Ort (z. B. 0,4l Cola – 0,60€)
 
-          .col-sm-4.service-item.color3.scrollimation.scale-in.d2
+          .col-sm-4.service-item.color2.scrollimation.scale-in.d2
             .service-icon
-              %i.fa.fa-glass
+              %i.fa.fa-cutlery
             %h3 Essen
 
             %p
@@ -140,19 +140,16 @@
               Alle, die zum
               %b
                 ersten
-              Teil kommen, bringen bitte Fingerfood mit (also essbare Dinge, deren Verzehr ohne Besteck möglich ist). Die Menge wählt bitte entsprechend eurem Hunger.
-          .col-sm-4.service-item.color2.scrollimation.scale-in.d1
+              Teil kommen, bringen bitte Fingerfood fürs Buffet mit (Verzehr ohne Besteck). Die Menge wählt bitte entsprechend eurem Hunger.
+          .col-sm-4.service-item.color1.scrollimation.scale-in.d1
             .service-icon
               %i.fa.fa-black-tie
             %h3 Dresscode
             %p
               %b
-                Neon.
-              %br
-              Ob ihr jetzt euer  komplettes Outfit dem Motto entsprechend gestaltet, nur wirksame Highlights mit ausgewählten Accessoires setzt oder euch noch zusätzlich von der
-              %b
-                “5”
-              inspirieren lasst - eurer Phantasie sind keine Grenzen gesetzt.
+                Neon
+
+
 
 
 
@@ -205,9 +202,23 @@
         .row
           .col-sm-6.col-md-5.text-right.scrollimation.fade-up.d1
             %h1.big-text Anmeldung
-            %p.lead Wir sind bemüht eine schöne Atmosphäre mit netten, lieben Brüdern und Schwestern zu ermöglichen.
-            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt, dui ac porta.
-          / === Contact Form ===
+            %p.lead Wenn du gerne mit uns feiern würdest, dann melde dich bitte mit dem Formular an.
+            %p
+              Wir
+              %b
+                garantieren
+              das es eine schöne und ordentlich Feier wird. Dafür achten wir besonders auf unsere Gästeliste.
+            %p
+              %b
+                Bitte beachtet unbedingt, dass nur getaufte Zeugen Jehovas über 16 Jahren eingelassen werden.
+
+
+            %p Es wäre auch super, wenn ihr euer momentanes Lieblingslied eintragen würdet. Wir haben etwas besonderes damit vor =)
+
+            %p
+              Ihr habt vor eurer Anmeldung noch Fragen? Wir freuen uns auf eure E-Mail:
+              %b
+                = mail_to "funection@outlook.com", "funection@outlook.com"
           .col-sm-6.col-md-offset-1.scrollimation.fade-left.d3
 
             = render :template => "registrations/new"
@@ -240,6 +251,6 @@
       		'infoText':'<p>Kulturscheune Thyrow \
       					<br/>14974 Trebbin\
       					<br/>Bahnhofstraße 89</p>',
-      		'linkText':'Auf Google Maps anschauenfi',
-      		'mapAddress':'250 W Broadway, New York, NY 10013',
+      		'linkText':'Auf Google Maps anschauen',
+      		'mapAddress':'Kulturscheune Thyrow',
       	};
