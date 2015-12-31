@@ -1,4 +1,7 @@
 class RegistrationsController < ApplicationController
+
+  before_filter :no_admin
+
 	def new
     @registration = Registration.new
   end
@@ -14,6 +17,12 @@ class RegistrationsController < ApplicationController
 
   def bbq
     render json: Registration.all
+  end
+
+  def no_admin
+    if current_user.admin != true
+      redirect_to homepage_url
+    end
   end
 
   def show
