@@ -16,4 +16,12 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"
   end
+
+  def new
+    if session[:user_id].present?
+      redirect_to homepage_url
+    else
+      render
+    end
+  end
 end

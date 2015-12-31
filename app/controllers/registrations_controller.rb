@@ -51,10 +51,10 @@ class RegistrationsController < ApplicationController
     case registration.state
     when "confirmed"
       RegistrationNotifier.registration_confirmation(registration).deliver
-    when "declined"
-      RegistrationNotifier.reject_confirmation(registration).deliver
     when "accepted"
       RegistrationNotifier.payment_confirmation(registration).deliver
+    when "reserved"
+      RegistrationNotifier.reserving_confirmation(registration).deliver
     else
       ""
     end

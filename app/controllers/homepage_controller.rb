@@ -6,7 +6,7 @@ class HomepageController < ActionController::Base
   end
 
   def no_current_user
-  	if current_user.nil?
+  	if session[:user_id].nil?
   	  redirect_to login_url
   	end
   end
