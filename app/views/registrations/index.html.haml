@@ -1,21 +1,44 @@
 .container
   %h2 Funection Control Center
-  %h3 Welche Anmeldungen sollen angezeigt werden?
+  %h4 Button Funktionen:
+  %b
+    Wichtig: Bitte immer nur einmal auf einen Button klicken.
+  %br
+  %b
+    Bestätigen:
+  Schickt eine Bestätigungsmail
+  %br
+  %b
+    Bezahlung:
+  Schickt eine Zahlungsbestätigung
+  %br
+  %b
+    Reservierung:
+  Schickt eine Reservierungsbesätigung, dieser Status ist für die, die nicht überweisen sondern z.B. Bar zahlen.
+  %br
+  %b
+    Absage:
+  Schickt
+  %b
+    keine
+  Email. Sortiert aber als Absage ein
+
+
+
   %div{"ng-controller" => "RegistrationApiCtrl", 'data-form-id' => SecureRandom.hex}
     .controls
       %select{'ng-model' => 'registration_filter', class: 'form-control', 'ng-initial' => 'Neuanmeldungen'}
         %option{:value => ""} Alle Anmeldungen
-        %option{:value => "created"} Neuanmeldungen
-        %option{:value => "confirmed"} Bestätigt
-        %option{:value => "accepted"} Bezahlt/Abgeschlossen
-        %option{:value => "declined"} Abgesagt oder Abgelehnte Anmeldungen
-        %option{:value => "reserved"} Reservierte Anmeldungen
+        %option{:value => "created"} Neuanmeldungen (Gerade über das Formular angemeldet)
+        %option{:value => "confirmed"} Bestätigt (Alle deren Anmeldungen von uns bestätigt wurden, noch nicht bezahlt)
+        %option{:value => "accepted"} Bezahlt/Abgeschlossen (Wurden Bestätigt und haben bezahlt)
+        %option{:value => "declined"} Abgesagt oder Abgelehnte Anmeldungen (Haben abgesagt oder wurden abgelehnt)
+        %option{:value => "reserved"} Reservierte Anmeldungen (Wurden bestätigt, haben aber nicht bezahlt)
 
     %p
-      Bestätigt: {{registration_persons_confirmed}}, Abgelehnt/Abgesagt: {{registration_persons_declined}}, Abeschlossen: {{registration_persons_accepted}}, Reserviert: {{registration_persons_reserved}}
+      Bestätigt: {{registration_persons_confirmed}}, Abeschlossen: {{registration_persons_accepted}}, Reserviert: {{registration_persons_reserved}}, Abgelehnt/Abgesagt: {{registration_persons_declined}}
 
 
-    {{test}}
 
 
 
@@ -42,6 +65,7 @@
             %th Personen
             %th Fragen
             %th Parts
+            %th Pate:
 
 
         %tbody
@@ -54,6 +78,8 @@
             %td {{registration.persons}}
             %td {{registration.questions}}
             %td {{registration.parts}}
+            %td {{registration.acquaintance}}
+
 
 
 
@@ -86,9 +112,10 @@
               Parts:
             {{registration.parts}}
 
+
           %p
-            %button.btn.btn-success{'ng-click' => 'update(registration, 1)'} Bestätigen
-            %button.btn.btn-warning{'ng-click' => 'update(registration, 3)'} Bezahlung
-            %button.btn.btn-info{'ng-click' => 'update(registration, 4)'} Reserviert
-            %button.btn.btn-default{'ng-click' => 'update(registration, 2)'} Absagen
+            %button.btn.btn-success{'ng-if' => 'registration.state!="confirmed"', 'ng-click' => 'update(registration, 1)'} Bestätigung
+            %button.btn.btn-warning{'ng-if' => 'registration.state!="accepted"','ng-click' => 'update(registration, 3)'} Bezahlung
+            %button.btn.btn-info{'ng-if' => 'registration.state!="reserved"','ng-click' => 'update(registration, 4)'} Reservierung
+            %button.btn.btn-default{'ng-if' => 'registration.state!="declined"','ng-click' => 'update(registration, 2)'} Absage
 

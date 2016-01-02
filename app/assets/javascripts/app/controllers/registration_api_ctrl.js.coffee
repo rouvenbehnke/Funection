@@ -27,8 +27,6 @@ angular.module('app.controllers')
         $s.registration_persons_reserved = $s.registration_persons_reserved + registration.persons
 
 
-
-
   $s.colorize = (registration) ->
     if registration.state == "created"
       $s.color = {'background' : 'lightgray'}

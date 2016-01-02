@@ -12,6 +12,18 @@
       .error{'ng-if' => 'sent'}
         %h2.forestgreen
           = "Deine Anmeldung war erfolgreich"
+        %h2.forestgreen
+          = "Sobald wir deine Anmeldung bestätigt haben, bekommst du eine Email mit allen wichtigen Infos"
+        %h2.forestgreen
+          = "Nachdem du uns dann das Geld überwiesen hast, ist deine Anmeldung fertig."
+
+        %h2.forestgreen
+          = "Bei weiteren Fragen schreib uns doch eine Mail:"
+          = mail_to "funection@outlook.com", "funection@outlook.com"
+
+        %h2.forestgreen
+          = "Vielen Dank =)"
+
 
     .form-group
       %label Bitte wähle deine Anmeldeart
