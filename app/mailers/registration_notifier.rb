@@ -4,7 +4,7 @@ class RegistrationNotifier < ApplicationMailer
   def registration_confirmation(registration)
     @registration = registration
     mail( :to => @registration.email,
-    :subject => 'Funection Registrierung Bestätigung' )
+    :subject => 'Funection Registrierungsbestätigung' )
   end
 
   def payment_confirmation(registration)

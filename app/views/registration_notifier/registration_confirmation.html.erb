@@ -8,9 +8,9 @@
     <p>hiermit bestätigen wir eure Anmeldung. Wir freuen uns schon darauf, euch als Gäste zu begrüßen!</p>
 
     <h2> Folgende Anmeldedaten wurden hinterlegt: </h2>
-    Vorname(n): <%= @registration.first_name %>
+    <b>Vorname(n): </b><%= @registration.first_name %>
     </br>
-    Nachname(n): <%= @registration.last_name %>
+    <b> Nachname(n): </b><%= @registration.last_name %>
 
     <p>
       Falls ihr noch eine Frage habt, schreibt doch bitte eine E-Mail an funection@outlook.com
@@ -20,7 +20,7 @@
     <p>
       Eure Anmeldung ist erst dann gültig, wenn wir das Eintrittsgeld erhalten haben! (Ist unser Gästelimit erreicht, sind die dabei, die zuerst bezahlt haben.)
     </p>
-    <p> Es wurden <%= @registration.persons %> angemeldet also müsstest du bitte <%= @registration.persons * 10 %> überweisen(10 Euro pro Person).
+    <p> Es wurde(n) <%= @registration.persons %> Person(en) angemeldet also müsstest du bitte <%= @registration.persons * 10 %> überweisen(10 Euro pro Person).
 
     <b>Die Kontodaten lauten:</b>
     </br>
@@ -86,7 +86,7 @@
     <p>
     Alles Liebe,
     </br>
-    Euer Funection-Team
+    Euer Funection-Team,
     </p>
     <p>
     Rouven Behnke, Bianca & Marcel Matzat, Christian Besser, Lydia & Harald Firchau, David & Ketura Lüdtke und Katja Schultze
