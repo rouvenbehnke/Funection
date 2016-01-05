@@ -95,7 +95,8 @@
 
       .form-group
         .col-sm-offset-3.col-sm-9
-        = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
+        = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary', 'ng-dblclick' => "return false")
+
 
 
 

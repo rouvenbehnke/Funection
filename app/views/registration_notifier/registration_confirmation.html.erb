@@ -5,7 +5,33 @@
   </head>
   <body>
     <h1>Hallo Freunde des Tanzes,</h1>
-    <p>vielen lieben Dank für eure Anmeldung. Wir freuen uns schon darauf, euch als Gäste zu begrüßen!</p>
+    <p>hiermit bestätigen wir eure Anmeldung. Wir freuen uns schon darauf, euch als Gäste zu begrüßen!</p>
+
+    <h2> Folgende Anmeldedaten wurden hinterlegt: </h2>
+    Vorname(n): <%= @registration.first_name %>
+    </br>
+    Nachname(n): <%= @registration.last_name %>
+
+    <p>
+      Falls ihr noch eine Frage habt, schreibt doch bitte eine E-Mail an funection@outlook.com
+    </p>
+
+    <h2>Wichtig:</h2>
+    <p>
+      Eure Anmeldung ist erst dann gültig, wenn wir das Eintrittsgeld erhalten haben! (Ist unser Gästelimit erreicht, sind die dabei, die zuerst bezahlt haben.)
+    </p>
+    <p> Es wurden <%= @registration.persons %> angemeldet also müsstest du bitte <%= @registration.persons * 10 %> überweisen(10 Euro pro Person).
+
+    <b>Die Kontodaten lauten:</b>
+    </br>
+    Harald Firchau
+    </br>
+    Kontonr: 6522102984
+    </br>
+    BLZ: 16050000
+    </br>
+    Mittelbrandenburgische Sparkasse (MBS)
+
     <h2>Hier nochmal alle wichtigen Infos:</h2>
     <h2>Datum:</h2>
     <p>Samstag, den 12.03.2016</p>
@@ -51,12 +77,11 @@
     <p>
       Gerne könnt ihr auch noch einige eurer Freunde einladen. Bitte beachtet unbedingt, dass nur getaufte Zeugen Jehovas über 16 Jahren eingelassen werden, die sich vorher bei uns angemeldet haben. Wenn sich eure Freunde an uns wenden, sollten sie sich bitte auf euch beziehen, damit wir sie zuordnen können.
     </p>
-    <h2>Wichtig:</h2>
+
     <p>
-      Eure Anmeldung ist erst dann gültig, wenn wir das Eintrittsgeld erhalten haben! (Ist unser Gästelimit erreicht, sind die dabei, die zuerst bezahlt haben.)
-    </p>
-    <p>
-    Wir freuen uns auf euch und einen tollen Abend!
+    <b>
+       Wir freuen uns auf euch und einen tollen Abend!
+    </b>
     </p>
     <p>
     Alles Liebe,
