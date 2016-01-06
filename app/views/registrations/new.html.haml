@@ -64,9 +64,9 @@
       .form-group
         .controls
         .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
-          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
+          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
         .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
-          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', required: 'true', class: 'form-control', placeholder: "Eure momentanen Lieblingslieder", :type => "text"}
+          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Eure momentanen Lieblingslieder", :type => "text"}
 
       %label
         = "An welchen Parts würdet ihr/du gerne teilnehmen?"
@@ -94,8 +94,7 @@
           = text_area('questions', '', 'ng-model' => 'formValues.questions', class: 'form-control', :placeholder => "Weitere Fragen/Anmerkungen?")
 
       .form-group
-        .col-sm-offset-3.col-sm-9
-        = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary', 'ng-dblclick' => "return false")
+        %input{'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary', value: 'Anmelden'}
 
 
 
