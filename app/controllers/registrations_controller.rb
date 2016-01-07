@@ -1,6 +1,6 @@
 class RegistrationsController < ApplicationController
 
-  before_filter :no_admin
+  before_filter :no_admin, except: [:create]
 
 	def new
     @registration = Registration.new
