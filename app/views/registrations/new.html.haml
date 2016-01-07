@@ -94,7 +94,8 @@
           = text_area('questions', '', 'ng-model' => 'formValues.questions', class: 'form-control', :placeholder => "Weitere Fragen/Anmerkungen?")
 
       .form-group
-        %input{'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary', value: 'Anmelden'}
+        = button_tag("Anmelden", 'ng-click' => 'send()', 'ng-disabled' => 'registration_form.$invalid', type: 'button', class: 'btn btn-primary')
+
 
 
 
