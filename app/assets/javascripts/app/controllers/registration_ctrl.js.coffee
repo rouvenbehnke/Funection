@@ -44,7 +44,6 @@ angular.module('app.controllers')
       form_values: $s.formValues
     , (success) ->
       $s.sent = true
-      $s.formValues = ""
       $s.marital_statuus = null
     , (error) ->
       $s.error = true
