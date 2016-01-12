@@ -46,7 +46,7 @@
             %span.icon-bar
           / ======= LOGO ========
           %a.navbar-brand.scrollto{:href => "#home"}
-            = image_tag("logo")
+            = image_tag("logo_new")
             Team Funection
         #site-nav.navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-right
@@ -69,9 +69,10 @@
       \===============================================
     %header#home
       .container.text-center
-        %h1 Team Funection
-        %h2 presents
-        %h1 Neon ^5
+        = image_tag "logo_neon_v3", class: "img-responsive"
+        //%h1 Team Funection
+        //%h2 presents
+        //%h1 Neon ^5
     / End header
 
     %section#services.add-padding
@@ -192,6 +193,9 @@
                 = image_tag('lydia-min', class: "img-responsive")
               %div
                 = image_tag('marcel_bianca-min', class: "img-responsive")
+              %div
+                = image_tag('lydiaharald', class: "img-responsive")
+
           .col-sm-7.scrollimation.fade-left.d3
             %h1
               Was ist das Team Funection?

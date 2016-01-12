@@ -44,7 +44,7 @@
 
     .div{"ng-if" => "!registration_filter"}
       = "Tabelle sortieren nach:"
-      %select{'ng-model' => 'registration', class: 'form-control', 'ng-initial' => 'first_name'}
+      %select{'ng-model' => 'registration', class: 'form-control', 'ng-initial' => 'parts'}
         %option{:value => "first_name"} Vorname
         %option{:value => "last_name"} Nachname
         %option{:value => "email"} Email

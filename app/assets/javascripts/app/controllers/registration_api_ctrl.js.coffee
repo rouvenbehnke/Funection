@@ -39,6 +39,7 @@ angular.module('app.controllers')
     if registration.state == "reserved"
       $s.color = {'background' : 'aquamarine'}
     $s.color
+  $s.registration = "state"
 
   $s.update = (registration, _state) ->
     RegistrationApiFormResource.update id: registration.id,
