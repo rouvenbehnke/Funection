@@ -23,9 +23,9 @@ ActiveRecord::Schema.define(version: 20151229174151) do
     t.string   "fav_song"
     t.integer  "acqu",         default: 1
     t.string   "acquaintance"
+    t.string   "questions"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "questions"
     t.integer  "state"
     t.integer  "persons"
     t.integer  "parts"

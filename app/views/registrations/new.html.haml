@@ -61,18 +61,18 @@
         .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
           %input{:name => "email", 'ng-model' => 'formValues.email', required: 'true', class: 'form-control', placeholder: "Eure E-Mail-Adresse", :type => "text"}
 
-      .form-group
-        .controls
-        .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
-          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
-        .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
-          %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Eure momentanen Lieblingslieder", :type => "text"}
+      -# .form-group
+      -#   .controls
+      -#   .div{'ng-if' => 'marital_statuus=="Einzelperson"'}
+      -#     %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Dein momentanes Lieblingslied", :type => "text"}
+      -#   .div{'ng-if' => 'marital_statuus!="Einzelperson"'}
+      -#     %input{:name => "fav_song", 'ng-model' => 'formValues.fav_song', class: 'form-control', placeholder: "Eure momentanen Lieblingslieder", :type => "text"}
 
-      %label
-        = "An welchen Parts würdet ihr/du gerne teilnehmen?"
+      -# %label
+      -#   = "An welchen Parts würdet ihr/du gerne teilnehmen?"
 
-      .form-group
-        %select{'ng-model' => 'partcollector', 'ng-options' => "part for part in parts", 'ng-required' => 'true', class: 'form-control', 'ng-change' => 'partselection_eval(partcollector)'}
+      -# .form-group
+      -#   %select{'ng-model' => 'partcollector', 'ng-options' => "part for part in parts", 'ng-required' => 'true', class: 'form-control', 'ng-change' => 'partselection_eval(partcollector)'}
 
 
       .form-group

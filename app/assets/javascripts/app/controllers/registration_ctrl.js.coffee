@@ -27,14 +27,14 @@ angular.module('app.controllers')
       $s.formValues.acqu = 1
     $s.formValues.acqu
 
-  $s.partselection_eval = (partcollector) ->
-    if partcollector == "Part1(Partnertanz)"
-      $s.formValues.parts = 0
-    if partcollector == "Part2(Freestyle)"
-      $s.formValues.parts = 1
-    if partcollector == "Part1 & Part2"
-      $s.formValues.parts = 2
-    $s.formValues.parts
+  # $s.partselection_eval = (partcollector) ->
+  #   if partcollector == "Part1(Partnertanz)"
+  #     $s.formValues.parts = 0
+  #   if partcollector == "Part2(Freestyle)"
+  #     $s.formValues.parts = 1
+  #   if partcollector == "Part1 & Part2"
+  #     $s.formValues.parts = 2
+  #   $s.formValues.parts
 
   $s.send = () ->
     $s.sent = false

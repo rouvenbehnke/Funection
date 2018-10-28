@@ -13,5 +13,3 @@ class CreateRegistration < ActiveRecord::Migration
     end
   end
 end
-
-
