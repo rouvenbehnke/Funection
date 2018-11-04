@@ -50,11 +50,11 @@ class RegistrationsController < ApplicationController
   def mail_template(registration)
     case registration.state
     when "confirmed"
-      RegistrationNotifier.registration_confirmation(registration).deliver
+      RegistrationNotifier.registration_confirmation(registration).deliver_later
     when "accepted"
-      RegistrationNotifier.payment_confirmation(registration).deliver
+      RegistrationNotifier.payment_confirmation(registration).deliver_later
     when "reserved"
-      RegistrationNotifier.reserving_confirmation(registration).deliver
+      RegistrationNotifier.reserving_confirmation(registration).deliver_later
     else
       ""
     end
