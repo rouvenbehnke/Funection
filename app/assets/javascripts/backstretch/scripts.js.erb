@@ -17,7 +17,6 @@ $(document).ready(function() {
 
 	$('#home').height($(window).height()+50);
 
-	$.backstretch('<%= asset_path('logo_neon_v3') %>');
 
 	$(window).scroll( function() {
 		var st = $(this).scrollTop(),
@@ -29,7 +28,7 @@ $(document).ready(function() {
 			'-webkit-transform' : 'scale('+sf+')'
 		});
 
-		$('#home .container').css({ 'opacity' : (1.4 - st/400) });
+		$('#home .logo-sounds').css({ 'opacity' : (1.4 - st/400) });
 
 		if($(window).scrollTop() > ($(window).height()+50)){
 			$('.backstretch').hide();
@@ -48,7 +47,7 @@ $(document).ready(function() {
 		'-webkit-transform' : 'scale('+sf+')'
 	});
 
-	$('#home .container').css({ 'opacity' : (1.4 - st/400) });
+	$('#home .logo-sounds').css({ 'opacity' : (1.4 - st/400) });
 
 
 	/*============================================
