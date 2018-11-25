@@ -296,14 +296,36 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
-
+@media (min-width: 1000px) {
 #home .container{
+    position: fixed;
+    top: 10%;
+    width: 100% !important;
+    margin-top:-120px;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 800px) {
+  #home .container{
     position: fixed;
     top: 50%;
     width: 100% !important;
     margin-top:-120px;
     z-index: -1;
+  }
 }
+
+@media (min-width: 800px) {
+  #home .container{
+    position: fixed;
+    top: 30%;
+    width: 100% !important;
+    margin-top:-120px;
+    z-index: -1;
+  }
+}
+
 
 #home p{
     margin: 0;
